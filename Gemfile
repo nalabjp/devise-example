@@ -36,6 +36,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Authentication
 gem 'devise'
+gem 'devise_invitable'
 
 group :development, :test do
   gem 'pry-byebug'
