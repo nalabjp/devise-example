@@ -1,24 +1,16 @@
-# README
+# devise example
+## Set up
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+    $ git clone git@github.com:nalabjp/devise-example.git
+    $ cd devise-example
+    $ bin/setup
 
-Things you may want to cover:
+## Launch application
 
-* Ruby version
+    $ bin/rails s -p 3000
 
-* System dependencies
+## letter_opener_web
 
-* Configuration
+You can see e-mails from this application in browser.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+http://localhost:3000/letter_opener
