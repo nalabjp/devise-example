@@ -1,0 +1,7 @@
+<h1>Users#index</h1>
+<% @users.each do |user| %>
+  <%= user.id %> | 
+  <%= user.email %><br>
+<% end %>
+<br>
+<%= link_to "Home", root_path %>
