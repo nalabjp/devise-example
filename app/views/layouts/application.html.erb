@@ -19,6 +19,12 @@
       <%= link_to "Login", new_user_session_path %>
     <% end %>
 
+    <% if respond_to?(:devise_mapping) && devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p class="alert alert-warning">
+        Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+      </p>
+    <% end %>
+
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
