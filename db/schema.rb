@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_29_060550) do
+ActiveRecord::Schema.define(version: 2018_10_09_082335) do
 
-  create_table "users", force: :cascade do |t|
+  create_table "legacy_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -37,13 +37,13 @@ ActiveRecord::Schema.define(version: 2018_07_29_060550) do
     t.string "invited_by_type"
     t.integer "invited_by_id"
     t.integer "invitations_count", default: 0
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-    t.index ["invitations_count"], name: "index_users_on_invitations_count"
-    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
-    t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["confirmation_token"], name: "index_legacy_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_legacy_users_on_email", unique: true
+    t.index ["invitation_token"], name: "index_legacy_users_on_invitation_token", unique: true
+    t.index ["invitations_count"], name: "index_legacy_users_on_invitations_count"
+    t.index ["invited_by_id"], name: "index_legacy_users_on_invited_by_id"
+    t.index ["invited_by_type", "invited_by_id"], name: "index_legacy_users_on_invited_by_type_and_invited_by_id"
+    t.index ["reset_password_token"], name: "index_legacy_users_on_reset_password_token", unique: true
   end
 
 end
