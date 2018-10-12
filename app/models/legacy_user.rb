@@ -34,3 +34,6 @@ class LegacyUser < ApplicationRecord
     User.allocate.tap { |u| u.initialize_with_legacy_user(self) }
   end
 end
+
+# We can not delegate to a protected method, so change it to a public method
+LegacyUser.protected_instance_methods.each { |method| LegacyUser.class_eval { public method } }
