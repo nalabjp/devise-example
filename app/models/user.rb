@@ -1,9 +1,11 @@
 require_relative 'legacy_user'
 
 class User
-  include ActiveModel::Model
-
   class << self
+    def new(params = {})
+      LegacyUser.new(params)
+    end
+
     def respond_to?(name, include_all = false)
       LegacyUser.respond_to?(name, include_all)
     end
@@ -35,6 +37,18 @@ class User
     else
       super
     end
+  end
+
+  def initialize_with_legacy_user(legacy_user)
+    @legacy_user = legacy_user
+  end
+
+  def dup
+    legacy_user.dup
+  end
+
+  def clone
+    legacy_user.clone
   end
 
   private

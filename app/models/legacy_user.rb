@@ -10,4 +10,27 @@ class LegacyUser < ApplicationRecord
   def devise_scope
     :user
   end
+
+  class << self
+    def new(*)
+      super.to_user
+    end
+  end
+
+  def dup
+    super.to_user
+  end
+
+  def clone
+    super.to_user
+  end
+
+  def init_with(*)
+    super.to_user
+  end
+
+  # The expected return value for behaviors delegated from initialization of User is an instance of User
+  def to_user
+    User.allocate.tap { |u| u.initialize_with_legacy_user(self) }
+  end
 end
