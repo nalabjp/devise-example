@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_09_082335) do
+ActiveRecord::Schema.define(version: 2018_10_15_080020) do
+
+  create_table "legacy_user_information", force: :cascade do |t|
+    t.integer "legacy_user_id", null: false
+    t.string "email", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "legacy_users", force: :cascade do |t|
     t.string "email", default: "", null: false
